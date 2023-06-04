@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.div-header {
+    @apply bg-[#1A94FF] flex w-[100%];
+}
+.divHeaderNav{
+    @apply mt-auto mb-auto w-full flex ml-20
+}
+.divHeaderNav input{
+    @apply w-[50%] h-10 outline-none pl-5
+} 
+
+.div-img{
+    @apply pl-10 pr-10 ml-20
+}
+
+.div-img .logo-main{
+    @apply p-3
+}
+.div-img .logo-title{
+    @apply pb-3
+}
+.btnSearch{
+    @apply bg-[#0D5CB6] p-2 text-white w-[10%] h-[100%] flex justify-center
+}
+.btnSearch img{
+    @apply pr-2
+}
+.divUserSite{
+    @apply ml-2
+}
+.userLogo{
+    @apply w-[35px] pl-2 h-[80%] mt-auto mb-auto
+}
+.divUserSite{
+    @apply flex text-white pl-3
+}
+.login-register{
+    @apply pl-3 hover:underline decoration-2
+}
+.account{
+    @apply pl-3 hover:underline decoration-2 mt-auto mb-auto
+}
+.divCartSite{
+    @apply mt-auto mb-auto flex text-white w-[10%]
+}
+.cartLogo{
+    @apply w-[50%] pl-5 h-[90%]
+}
+.cartBtn a{
+    @apply pl-3 hover:underline decoration-2 mt-auto mb-auto whitespace-nowrap
+}
+.navAddress{
+    @apply p-2 bg-[#F5F5FA] pl-20 drop-shadow-sm
+}
+.firstPage{
+      @apply text-[#808089]
+}
+/* HeaderDonee */
+.divMainContainer{
+    @apply flex
+}
+.divCateName{
+    @apply ml-20 w-[20%]
+}
+.divCateName p{
+    @apply p-1 text-[20px]
+}
+.ulCateName li{
+    @apply p-1
+}
+.divProductSite{
+    @apply ml-20 mt-3 w-[100%]
+}
+.divProductSite p{
+    @apply text-[25px] pb-2
+}
+.banner{
+    @apply w-[70%]
+}
+
+.divListProduct{
+    @apply flex items-center border-b-2 border-blue-200 w-[70%]
+}
+.divListProduct h2{
+    @apply py-4 px-6
+}
+.divIcon{
+    @apply flex justify-start gap-7 pt-2 w-[100%]
+}
+.icon{
+    @apply bg-[#EEEEEE] p-2 rounded-3xl w-20 h-10
+}
+/* ProductList */
+.divProductList{
+    @apply grid grid-cols-4 justify-center w-[80%]
+}
+.divProduct{
+   @apply mx-auto mt-7 p-3
+}
+.divProduct .shipFastest{
+    @apply text-[12px]
+}
+.divProduct .pTitle{
+    @apply text-[13px] max-h-4 overflow-visible truncate w-32
+}
+.rate{
+    @apply flex gap-1
+}
+.seller p{
+    @apply text-xs border-l-2 pl-2
+}
+.divPrice {
+    @apply flex
+}
+.divPrice .price{
+    @apply text-red-600 text-xl
+}
+.divPrice .discount{
+    @apply border-2 border-red-800 ml-5 my-auto h-6 text-red-700 text-sm
+}
+/* footer */
+
+.footer{
+    @apply flex justify-around pt-6 border-t-2 border-blue-200 w-[70%] mx-auto
+}
+.contactTitle{
+    @apply text-2xl font-semibold
+}
+/* productDetail */

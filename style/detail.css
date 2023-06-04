@@ -1,0 +1,28 @@
+.divPrdDetail{
+    @apply flex pt-2
+}
+
+.imgProduct{
+    @apply w-[30%] ml-40
+}
+.imgPrdDetail{
+    @apply w-[440px]
+}
+.divImgDemo{
+    @apply flex justify-center
+}
+.imgDemo{
+    @apply w-[50px]
+}
+.divMainProduct{
+    @apply w-[50%]
+}
+.divBookName{
+    @apply mt-10
+}
+.divBookName p{
+    @apply text-2xl
+}
+.rate{
+    @apply pt-2
+}
