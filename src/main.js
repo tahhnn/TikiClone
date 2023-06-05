@@ -55,7 +55,7 @@ router.on({
     render(productDetail, app);
   },
   "/prd/:id": ({data}) => {
-    // console.log(id);
+    // console.log(data);
     // if (data.hasOwnProperty("id")) {
     render(() => {
       productDetail(data)

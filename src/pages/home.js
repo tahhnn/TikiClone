@@ -5,7 +5,7 @@ const homePage = function () {
   const [data, setData] = useState([]);
   useEffect(() => {
 		const getData = () => {
-			fetch('http://localhost:3000/books')
+			fetch('http://localhost:3000/books',{method: 'GET'})
 				.then(res => res.json())
 				.then(value => setData(value))
 		}
