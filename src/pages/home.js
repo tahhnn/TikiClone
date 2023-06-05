@@ -4,13 +4,11 @@ import { useState,useEffect } from "../../lib";
 const homePage = function () {
   const [data, setData] = useState([]);
   useEffect(() => {
-		const getData = () => {
-			fetch('http://localhost:3000/books',{method: 'GET'})
+		fetch('http://localhost:3000/books')
 				.then(res => res.json())
 				.then(value => setData(value))
 		}
-		getData();
-	}, [])
+, [])
   return /*html*/ `
     ${header()}
     <div class="navAddress">

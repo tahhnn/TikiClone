@@ -54,12 +54,12 @@ router.on({
   "/prd": () => {
     render(productDetail, app);
   },
-  "/prd/:id": ({data}) => {
+  "/prd/:id": ({ data }) => {
     // console.log(data);
     // if (data.hasOwnProperty("id")) {
-    render(() => {
+    render(() => 
       productDetail(data)
-    },app);
+    , app);
     // }
     // render(notFound,app);
   },
@@ -67,6 +67,7 @@ router.on({
     render(Dashboard, app);
   },
 });
+// router.on('/prd/:id', ({ data }) => render(() => productDetail(data), app))
 router.notFound = () => {
   render(notFound());
 };

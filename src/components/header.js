@@ -1,7 +1,7 @@
 const header = function () {
   return `<div class="div-header">
     <div class="div-img">
-        <a href=""><img class="logo-main" src="../src/img/Rectangle.png" alt="">
+        <a href="/"><img class="logo-main" src="../src/img/Rectangle.png" alt="">
         <img class="logo-title" src="../src/img/Rectangle-1.png" alt=""></a>
     </div>
     <div class="divHeaderNav">

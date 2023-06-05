@@ -11,18 +11,30 @@ const productDetail = function ({ id }) {
   useEffect(() => {
     fetch(`http://localhost:3000/books/${id}`)
       .then((res) => res.json())
-      .then((data) => setBook(data))
+      .then((data) => setBook(data));
   }, []);
- 
+  console.log(books);
   // if (dataFind) {
   //   const dataFilter = data.filter((data) => data.rating_average === id.rating_average);
-    return /*html*/ `
-    ${header}
+  return /*html*/ `
+    ${header()}
     <div class="navAddress">
-    // <p><a href="/" class="firstPage">Trang chủ</a> ><a href="/">${books.name}</a></p>
+    <p><a href="/" class="firstPage">Trang chủ</a> ><a href="/">${
+      books.name
+    }</a></p>
   </div>
     <div class="divPrdDetail w-[90%] mx-auto border-b-2 border-gray-200 pb-3 ">
-
+    <div class="border-r-[1px] border-r-[#f5f5f5]">
+    <img width="500" src="${books.images ? books.images[0] : ""}" alt="detailPrd" />
+    <div class="mt-6">
+        <div class="p-1 inline-block border-[1px] border-[#ccc] 
+          ${books.images && books.images[1] ? "" : "hidden"}
+        ">
+            <img class="w-20 " src="${
+              books.images ? books.images[1] : ""
+            }" alt="" />
+        </div>
+    </div>
             
             </div>
             <div class="divMainProduct ml-4">
@@ -38,9 +50,7 @@ const productDetail = function ({ id }) {
                     <div class="seller flex">
                          <p class="pr-2">${books.rating_average}</p>
                          <p>${
-                           books.quantity_sold
-                             ? books.quantity_sold.value
-                             : ""
+                           books.quantity_sold ? books.quantity_sold.value : ""
                          }</p>
                     </div>
                 </div>
@@ -60,16 +70,9 @@ const productDetail = function ({ id }) {
                     <button class="w-[50%] h-[50px] mt-3 bg-[#FF3945] text-white font-semibold">Mua ngay</button>
                 </div>
                 </div>
-                <div class="divRcmPrd w-[100%] pb-3">
-                    <p class="w-[70%] mx-auto mt-10 text-2xl">Sản phẩm tương tự</p>
-                    <div class="grid grid-cols-4 w-[70%] mx-auto gap-20">
-
-                
-                    `
-
-               }
-
-  
-
+              
+                ${footer()}
+                    `;
+};
 
 export default productDetail;
