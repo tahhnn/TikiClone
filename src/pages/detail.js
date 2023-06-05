@@ -2,11 +2,11 @@ import "../../style/detail.css";
 import "../../style/style.css";
 import { useState,useEffect } from "../../lib";
 
-const productDetail = function (id) {
+const productDetail = function ({id}) {
   console.log(id);
   const [books,setBooks] = useState([]);
   useEffect(function (){
-    fetch(`http://localhost:3000/books/${id.data.id}`)
+    fetch(`http://localhost:3000/books/${id}`)
     .then(function (response) {
       if (!response.ok) {
         throw new Error('Network response was not ok');
