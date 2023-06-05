@@ -10,6 +10,7 @@ import footer from "./components/footer";
 import { router, useState, useEffect, render } from "../lib";
 import { scrollToTop } from "../ultilities/lib";
 import { notFound } from "./components/notfound";
+import addProduct from "./pages/admin/add";
 // DOM declaration
 const headerBox = document.querySelector("#header");
 const app = document.querySelector("#app");
@@ -66,6 +67,9 @@ router.on({
   "/dashboard": () => {
     render(Dashboard, app);
   },
+  "/add/": () => {
+    render(addProduct, app);
+  }
 });
 // router.on('/prd/:id', ({ data }) => render(() => productDetail(data), app))
 router.notFound = () => {

@@ -1,20 +1,34 @@
-import { useState, useEffect } from '../../../lib'
+import { useState, useEffect } from "../../../lib";
 
 const Dashboard = function () {
-    // Buoc 2
-    const [books, setBooks] = useState([])
-    // Buoc 3
-    useEffect(function () {
-        fetch('http://localhost:3000/books')
-            .then(function (res) {
-                return res.json()
+  // Buoc 2
+  const [books, setBooks] = useState([]);
+  // Buoc 3
+  useEffect(function () {
+    fetch("http://localhost:3000/books")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        setBooks(data);
+      });
+  });
+  useEffect(function () {
+    const btnDelete = document.querySelectorAll(".deleteBtn");
+    btnDelete.forEach(function (btn) {
+      btn.onclick = function () {
+        const id = btn.dataset.id;
+        fetch(`http://localhost:3000/books/${id}`,{method: 'DELETE'})
+        .then(function(){
+            const data = books.filter(function(book){
+                book.id != id
             })
-            .then(function (data) {
-                setBooks(data)
-                
-            })
-    })
-    return /*html*/`
+            setBooks(data);
+        })
+      };
+    });
+  });
+  return /*html*/ `
         <div>
             <h1>Dashboard</h1>
 
@@ -38,29 +52,30 @@ const Dashboard = function () {
             </thead>
 
             <tbody class="divide-y divide-gray-200">
-            ${books.map(function (book) {
-        return /*html*/`
+            ${books
+              .map(function (book) {
+                return /*html*/ `
                 <tr>
                     <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                         ${book.name}
                     </td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-                        <img width="200" src="${book.images[0]}"/>
+                        <img width="200" src="${book?.images ? book.images[0] : ''}"/>
                     </td>
-                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">${book.rating_average}</td>
-                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">${book.original_price}đ</td>
-                    <td><a class="bg-red-500 text-white p-2 rounded-md" href="/dashboard/${book.id}">Xóa</a></td>
-                    <td><a class="bg-blue-500 text-white p-2 rounded-md" href="/dashboard/${book.id}">Sửa</a></td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">${book?.rating_average}</td>
+                    <td><button class="deleteBtn bg-red-500 text-white p-2 rounded-md" data-id="${book.id}">Xóa</button></td>
+                    <td><button class="editBtn bg-blue-500 text-white p-2 rounded-md" data-id="${book.id}" >Sửa</button></td>
                 </tr>
-                `
-    }).join("")}
+                `;
+              })
+              .join("")}
                 
             </tbody>
             </table>
-            <button class="bg-orange-500 text-white p-2 rounded-md mx-auto block">Thêm mới</button>
+            <button class="bg-orange-500 text-white p-2 rounded-md mx-auto block"><a href="/add">Thêm mới</a></button>
             </div>
         </div>
-    `
-}
+    `;
+};
 
-export default Dashboard
+export default Dashboard;

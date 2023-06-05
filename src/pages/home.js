@@ -9,6 +9,7 @@ const homePage = function () {
 				.then(value => setData(value))
 		}
 , [])
+// console.log(data);
   return /*html*/ `
     ${header()}
     <div class="navAddress">
@@ -43,10 +44,10 @@ const homePage = function () {
             .map(function (item) {
               return /*html*/ `
                 <div class="divProduct">
-                  <a class="" href="/prd/${item.id}"><img class="imgPrd hover:scale-125 duration-100" src="${item.images[0]}" alt="" /></a>
+                  <a class="" href="/prd/${item.id}"><img class="imgPrd hover:scale-125 duration-100" src="${item?.images[0]}" alt="" /></a>
                   <img class="freeShipAlowed" src="./src/img/tikiNow.png" alt="" />
                   <p class="shipFastest">GIAO SIÊU TỐC 2H</p>
-                  <a href="/prd/${item.id}"><p class="pTitle">${item.name}</p></a>
+                  <a href="/prd/${item.id}"><p class="pTitle">${item?.name}</p></a>
                   <div class="rate ">
                     <i class="fas fa-star text-sm"></i>
                     <i class="fas fa-star text-sm"></i>
@@ -58,7 +59,7 @@ const homePage = function () {
                     </div>
                   </div>
                   <div class="divPrice">
-                    <p class="price">${item.list_price}₫</p>
+                    <p class="price">${item?.list_price}₫</p>
                     <p class="discount">23%</p>
                   </div>   
                 </div>
