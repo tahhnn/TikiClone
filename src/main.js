@@ -7,7 +7,7 @@ import "../style/style.css";
 import header from "./components/header";
 import footer from "./components/footer";
 // console.log(data);
-import { router, useState, useEffect, render } from "./lib";
+import { router, useState, useEffect, render } from "../lib";
 import { scrollToTop } from "../ultilities/lib";
 import { notFound } from "./components/notfound";
 // DOM declaration
@@ -54,13 +54,12 @@ router.on({
   "/prd": () => {
     render(productDetail, app);
   },
-  "/prd/:id": ({ data }) => {
-    // const { id } = data;
+  "/prd/:id": (id) => {
     // console.log(id);
     // if (data.hasOwnProperty("id")) {
     render(() => {
-      productDetail(data),app;
-    });
+      productDetail(id)
+    },app);
     // }
     // render(notFound,app);
   },

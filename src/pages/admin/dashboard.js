@@ -1,4 +1,4 @@
-import { useState, useEffect } from './../../lib/'
+import { useState, useEffect } from '../../../lib'
 
 const Dashboard = function () {
     // Buoc 2
@@ -45,16 +45,19 @@ const Dashboard = function () {
                         ${book.name}
                     </td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-                        <img src="${book.images[0]}"/>
+                        <img width="200" src="${book.images[0]}"/>
                     </td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">${book.rating_average}</td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">${book.original_price}đ</td>
+                    <td><a class="bg-red-500 text-white p-2 rounded-md" href="/dashboard/${book.id}">Xóa</a></td>
+                    <td><a class="bg-blue-500 text-white p-2 rounded-md" href="/dashboard/${book.id}">Sửa</a></td>
                 </tr>
                 `
     }).join("")}
                 
             </tbody>
             </table>
+            <button class="bg-orange-500 text-white p-2 rounded-md mx-auto block">Thêm mới</button>
             </div>
         </div>
     `

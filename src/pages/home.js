@@ -1,6 +1,6 @@
 import header from "../components/header";
 import footer from "../components/footer";
-import { useState,useEffect } from "../lib";
+import { useState,useEffect } from "../../lib";
 const homePage = function () {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -8,7 +8,6 @@ const homePage = function () {
 			fetch('http://localhost:3000/books')
 				.then(res => res.json())
 				.then(value => setData(value))
-				.catch(err => console.log(err))
 		}
 		getData();
 	}, [])
