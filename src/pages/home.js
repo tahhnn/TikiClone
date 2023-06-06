@@ -36,6 +36,20 @@ const homePage = function () {
       setData(dataFilter)
     };
   });
+  //tìm kiếm
+  useEffect(() => {
+    const searchBox = document.querySelector('.searchBox');
+    const searchBtn = document.querySelector('.btnSearch');
+    searchBtn.addEventListener('click',function (e) {
+      e.preventDefault();
+      fetch(`http://localhost:3000/books?q=${searchBox.value}`)
+      .then(function (response) {
+          return response.json()
+      }).then((data) =>{
+        setData(data)
+      })
+    });
+  });
   // console.log(data);
   return /*html*/ `
     ${header()}

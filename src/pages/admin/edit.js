@@ -8,7 +8,7 @@ const editProduct = function ({id}) {
             return response.json();
         }).then((response) => setBooks(response))
     },[])
-    console.log(books);
+    console.log(books.name);
   useEffect(() => {
     const form = document.querySelector("form");
     const prd = form.querySelector(".prd");

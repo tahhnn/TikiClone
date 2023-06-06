@@ -5,7 +5,7 @@ const header = function () {
         <img class="logo-title" src="../src/img/Rectangle-1.png" alt=""></a>
     </div>
     <div class="divHeaderNav">
-      <input type="text">
+      <input type="text" class="searchBox">
       <button class="btnSearch"><img src="../src/img/searchbtn.png" alt="">
       <p>Tìm kiếm</p></button>
       <div class="divUserSite">

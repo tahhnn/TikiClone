@@ -85,9 +85,15 @@
     },
     {
       "name": "Thanh",
-      "list_price": "999999999",
+      "list_price": "6969696969696969",
       "rating_average": "5",
       "id": 9
+    },
+    {
+      "name": "Thanh QUỶ",
+      "list_price": "999999999",
+      "rating_average": "3",
+      "id": 10
     }
   ]
 }
