@@ -6,26 +6,31 @@ const addProduct = function () {
     const prd = form.querySelector(".prd");
     const desc = form.querySelector(".desc");
     const rate = form.querySelector(".rate");
+    const imgData = form.querySelector(".img").files[0];
     const key = "vqmbmvm1";
     const URLCloud = "https://api.cloudinary.com/v1_1/diklknmpm/image/upload";
-    
-    form.addEventListener("submit",async (e) => {
-      const imgData = form.querySelector('.img').files[0];
+
+    const formData = new FormData();
+    formData.append("file", imgData);
+    formData.append("upload_preset", key);
+
+ 
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const newPrd = {
         name: prd.value,
         desc: desc.value,
         rating_average: rate.value,
-        images:data
+       
       };
-      console.log(newPrd);
       fetch("http://localhost:3000/books", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPrd),
       }).then(() => {
-        router.navigate("/dashboard");
+        // router.navigate("/dashboard");
       });
     });
   });

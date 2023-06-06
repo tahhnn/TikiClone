@@ -1,4 +1,4 @@
-import { useState, useEffect } from "../../../lib";
+import { useState, useEffect,router } from "../../../lib";
 
 const Dashboard = function () {
   // Buoc 2
@@ -12,7 +12,7 @@ const Dashboard = function () {
       .then(function (data) {
         setBooks(data);
       });
-  });
+  },[]);
   useEffect(function () {
     const btnDelete = document.querySelectorAll(".deleteBtn");
     btnDelete.forEach(function (btn) {
@@ -24,6 +24,8 @@ const Dashboard = function () {
                 book.id != id
             })
             setBooks(data);
+        }).then(() =>{
+          router.navigate('/dashboard');
         })
       };
     });
