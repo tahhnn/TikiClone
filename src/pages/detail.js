@@ -20,7 +20,7 @@ const productDetail = function ({ id }) {
     ${header()}
     <div class="navAddress">
     <p><a href="/" class="firstPage">Trang chủ</a> ><a href="/">${
-      books.name
+      books.name 
     }</a></p>
   </div>
     <div class="divPrdDetail w-[90%] mx-auto border-b-2 border-gray-200 pb-3 ">

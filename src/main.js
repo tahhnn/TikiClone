@@ -11,6 +11,7 @@ import { router, useState, useEffect, render } from "../lib";
 import { scrollToTop } from "../ultilities/lib";
 import { notFound } from "./components/notfound";
 import addProduct from "./pages/admin/add";
+import editProduct from "./pages/admin/edit";
 // DOM declaration
 const headerBox = document.querySelector("#header");
 const app = document.querySelector("#app");
@@ -42,7 +43,6 @@ router.on({
     // render(homePage(dataSort));
   },
   "/home/sortSeller": () => {
-    
     // render(homePage(dataFilter));
   },
 
@@ -52,9 +52,7 @@ router.on({
   "/prd/:id": ({ data }) => {
     // console.log(data);
     // if (data.hasOwnProperty("id")) {
-    render(() => 
-      productDetail(data)
-    , app);
+    render(() => productDetail(data), app);
     // }
     // render(notFound,app);
   },
@@ -63,7 +61,10 @@ router.on({
   },
   "/add/": () => {
     render(addProduct, app);
-  }
+  },
+  "/edit/:id": ({ data }) => {
+    render(() => editProduct(data), app);
+  },
 });
 // router.on('/prd/:id', ({ data }) => render(() => productDetail(data), app))
 router.notFound = () => {

@@ -1,9 +1,8 @@
 import { useState, useEffect,router } from "../../../lib";
 
 const Dashboard = function () {
-  // Buoc 2
+
   const [books, setBooks] = useState([]);
-  // Buoc 3
   useEffect(function () {
     fetch("http://localhost:3000/books")
       .then(function (res) {
@@ -21,7 +20,7 @@ const Dashboard = function () {
         fetch(`http://localhost:3000/books/${id}`,{method: 'DELETE'})
         .then(function(){
             const data = books.filter(function(book){
-                book.id != id
+               return book.id != id
             })
             setBooks(data);
         }).then(() =>{
@@ -50,6 +49,9 @@ const Dashboard = function () {
                 <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     Price
                 </th>
+                <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Chức năng
+                </th>
                 </tr>
             </thead>
 
@@ -59,14 +61,17 @@ const Dashboard = function () {
                 return /*html*/ `
                 <tr>
                     <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                        ${book.name}
+                        ${book?.name}
                     </td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-                        <img width="200" src="${book?.images ? book.images[0] : ''}"/>
+                        <img width="200" src="${book?.images ? book?.images[0] : ''}"/>
                     </td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">${book?.rating_average}</td>
-                    <td><button class="deleteBtn bg-red-500 text-white p-2 rounded-md" data-id="${book.id}">Xóa</button></td>
-                    <td><button class="editBtn bg-blue-500 text-white p-2 rounded-md" data-id="${book.id}" >Sửa</button></td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">${book?.list_price}</td>
+                    <td>
+                    <button class="deleteBtn bg-red-500 text-white p-2 rounded-md" data-id="${book.id}">Xóa</button>
+                    <a href="/edit/${book.id}" class="editBtn bg-blue-500 text-white p-2 rounded-md" data-id="${book.id}" >Sửa</a>
+                    </td>
                 </tr>
                 `;
               })

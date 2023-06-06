@@ -1,6 +1,14 @@
-import { useEffect, useState, router } from "../../../lib";
+import { useState,useEffect,router } from "../../../lib";
 import { v4 as uuidv4 } from "uuid";
-const addProduct = function () {
+const editProduct = function ({id}) {
+    const [books,setBooks] = useState([])
+    useEffect(()=>{
+        fetch(`http://localhost:3000/books/${id}`)
+        .then(function (response) {
+            return response.json();
+        }).then((response) => setBooks(response))
+    },[])
+    console.log(books);
   useEffect(() => {
     const form = document.querySelector("form");
     const prd = form.querySelector(".prd");
@@ -10,9 +18,6 @@ const addProduct = function () {
     const key = "vqmbmvm1";
     const URLCloud = "https://api.cloudinary.com/v1_1/diklknmpm/image/upload";
 
-    
-    
-    
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const formData = new FormData(form);
@@ -23,10 +28,9 @@ const addProduct = function () {
         name: formData.get("name"),
         list_price: formData.get("price"),
         rating_average: formData.get("rate"),
-       
       };
-      fetch("http://localhost:3000/books", {
-        method: "POST",
+      fetch(`http://localhost:3000/books/${id}`, {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPrd),
       }).then(() => {
@@ -52,9 +56,10 @@ const addProduct = function () {
         <div class="relative">
           <input
             type="text"
-            class="prd w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            class="prd w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
             placeholder="Enter name..."
             name="name"
+            value=${books.name}
           />
   
         
@@ -80,6 +85,7 @@ const addProduct = function () {
             class="rate w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" min="0" max="5" step=".1"
             placeholder="Rate Ratio"
             name="rate"
+            value=${books.rating_average}
           />
   
         
@@ -95,6 +101,7 @@ const addProduct = function () {
             class="price w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter price"
             name="price"
+            value="${books.list_price}"
           />
         </div>
       </div>
@@ -112,4 +119,4 @@ const addProduct = function () {
     
     `;
 };
-export default addProduct;
+export default editProduct;
