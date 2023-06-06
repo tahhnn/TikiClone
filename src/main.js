@@ -42,13 +42,7 @@ router.on({
     // render(homePage(dataSort));
   },
   "/home/sortSeller": () => {
-    // const prdCheckSellValue = data.filter(function (prd) {
-    //   return prd.hasOwnProperty("quantity_sold");
-    // });
-    // console.log(prdCheckSellValue);
-    // const dataFilter = prdCheckSellValue.sort(function (a, b) {
-    //   return a.quantity_sold.value - b.quantity_sold.value;
-    // });
+    
     // render(homePage(dataFilter));
   },
 
