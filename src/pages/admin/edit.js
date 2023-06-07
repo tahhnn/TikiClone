@@ -29,7 +29,7 @@ const editProduct = function ({id}) {
         list_price: formData.get("price"),
         rating_average: formData.get("rate"),
       };
-      fetch(`http://localhost:3000/books/${id}`, {
+      fetch(`http://localhost:3000/books/${books.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPrd),
@@ -59,7 +59,7 @@ const editProduct = function ({id}) {
             class="prd w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
             placeholder="Enter name..."
             name="name"
-            value=${books.name}
+            value="${books.name}"
           />
   
         
@@ -68,7 +68,7 @@ const editProduct = function ({id}) {
   
       <div>
         <label for="img" class="sr-only">Ảnh</label>
-  
+        <img width="100" src="${books.images ? books.images[0] : ''}"/>
         <div class="relative">
           <input
             type="file"

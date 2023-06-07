@@ -84,16 +84,22 @@
       "short_description": "Sơ lược về tác phẩmTất cả những trải nghiệm trong chuyến phiêu du theo đuổi vận mệnh của mình đã giúp Santiago thấu hiểu được ý nghĩa sâu xa nhất của hạnh phúc, hòa hợp với vũ trụ và con người.Tiểu ..."
     },
     {
-      "name": "Thanh",
-      "list_price": "6969696969696969",
+      "name": "Anh thanh chứ ai",
+      "list_price": "999999999",
       "rating_average": "5",
       "id": 9
     },
     {
       "name": "Thanh QUỶ",
       "list_price": "999999999",
-      "rating_average": "3",
+      "rating_average": "5",
       "id": 10
+    },
+    {
+      "name": "Thanh QUỶ",
+      "list_price": "999999999",
+      "rating_average": "5",
+      "id": 11
     }
   ]
 }

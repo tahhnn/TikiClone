@@ -3,38 +3,54 @@ import { v4 as uuidv4 } from "uuid";
 const addProduct = function () {
   useEffect(() => {
     const form = document.querySelector("form");
-    const prd = form.querySelector(".prd");
-    const price = form.querySelector(".price");
-    const rate = form.querySelector(".rate");
-    const imgData = form.querySelector(".img").files[0];
-    const key = "vqmbmvm1";
-    const URLCloud = "https://api.cloudinary.com/v1_1/diklknmpm/image/upload";
-
-    
-    
-    
     form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      formData.append("file", imgData);
-      formData.append("upload_preset", key);
+      const prd = form.querySelector(".prd");
+      const price = form.querySelector(".price");
+      const rate = form.querySelector(".rate");
 
-      const newPrd = {
-        name: formData.get("name"),
-        list_price: formData.get("price"),
-        rating_average: formData.get("rate"),
-       
-      };
-      fetch("http://localhost:3000/books", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newPrd),
-      }).then(() => {
-        router.navigate("/dashboard");
+      const img = form.querySelector(".img");
+      uploadImg(img.files[0]);
+      
+      e.preventDefault();
+      
+      if (prd.value.length < 5) {
+        prd.nextElementSibling.innerText = "Tên tối thiểu 5 ký tự";
+      } else if (price.value.length < 5) {
+        price.nextElementSibling.innerText = "Bạn chưa nhập giá";
+      } else {
+        const newPrd = {
+          name: formData.get("name"),
+          list_price: formData.get("price"),
+          rating_average: formData.get("rate"),
+        };
+        fetch("http://localhost:3000/books", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newPrd),
+          // }).then(() => {
+            //   router.navigate("/dashboard");
+          });
+        }
       });
     });
-  });
+    const uploadImg = (files) => {
+      const key = "okchuaaa";
+      const URLCloud = "https://api.cloudinary.com/v1_1/diklknmpm/image/upload";
+      const imgForm = new FormData();
+      const url = [];
+    imgForm.append("upload_preset", key);
+    imgForm.append("folder", "anhthanh");
 
+    imgForm.append("file", files);
+    const res = fetch(URLCloud, {
+      method: "POST",
+      headers: { "content-type": "application/form-data" },
+    }).then((data) => {
+      console.log(data);
+    })
+    
+    console.log(url);
+  };
   return /*html*/ `
    
   
@@ -48,7 +64,7 @@ const addProduct = function () {
     <form action="" class="mx-auto mb-0 mt-8 max-w-md space-y-4">
       <div>
         <label for="name" class="sr-only">Tên sản phẩm</label>
-  
+
         <div class="relative">
           <input
             type="text"
@@ -56,6 +72,7 @@ const addProduct = function () {
             placeholder="Enter name..."
             name="name"
           />
+          <p class="text-red-600 font-extrabold"></p>
   
         
         </div>
@@ -81,7 +98,7 @@ const addProduct = function () {
             placeholder="Rate Ratio"
             name="rate"
           />
-  
+          <p class="text-red-600 font-extrabold"></p>
         
         </div>
       </div>
@@ -96,6 +113,7 @@ const addProduct = function () {
             placeholder="Enter price"
             name="price"
           />
+          <p class="text-red-600 font-extrabold"></p>
         </div>
       </div>
   

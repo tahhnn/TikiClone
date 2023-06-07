@@ -30,22 +30,6 @@ router.on({
   "/": () => {
     render(homePage, app);
   },
-  "/home/sortLow": () => {
-    // const dataSort = data.sort(function (a, b) {
-    //   return b.list_price - a.list_price;
-    // });
-    // render(homePage(dataSort));
-  },
-  "/home/sortHigh": () => {
-    // const dataSort = data.sort(function (a, b) {
-    //   return a.list_price - b.list_price;
-    // });
-    // render(homePage(dataSort));
-  },
-  "/home/sortSeller": () => {
-    // render(homePage(dataFilter));
-  },
-
   "/prd": () => {
     render(productDetail, app);
   },
