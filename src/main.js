@@ -12,6 +12,7 @@ import { scrollToTop } from "../ultilities/lib";
 import { notFound } from "./components/notfound";
 import addProduct from "./pages/admin/add";
 import editProduct from "./pages/admin/edit";
+import loginDashBoard from "./pages/login";
 // DOM declaration
 const headerBox = document.querySelector("#header");
 const app = document.querySelector("#app");
@@ -48,6 +49,9 @@ router.on({
   },
   "/edit/:id": ({ data }) => {
     render(() => editProduct(data), app);
+  },
+  "/login": () => {
+    render(loginDashBoard, app);
   },
 });
 // router.on('/prd/:id', ({ data }) => render(() => productDetail(data), app))

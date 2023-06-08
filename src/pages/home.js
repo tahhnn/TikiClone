@@ -31,23 +31,26 @@ const homePage = function () {
       });
       console.log(prdCheckSellValue);
       const dataFilter = prdCheckSellValue.sort(function (a, b) {
-        return a.quantity_sold.value - b.quantity_sold.value;
+        return b.quantity_sold.value - a.quantity_sold.value;
       });
-      setData(dataFilter)
+      setData(dataFilter);
     };
   });
   //tìm kiếm
   useEffect(() => {
-    const searchBox = document.querySelector('.searchBox');
-    const searchBtn = document.querySelector('.btnSearch');
-    searchBtn.addEventListener('click',function (e) {
-      e.preventDefault();
-      fetch(`http://localhost:3000/books?q=${searchBox.value}`)
-      .then(function (response) {
-          return response.json()
-      }).then((data) =>{
-        setData(data)
-      })
+    const searchBox = document.querySelector(".searchBox");
+    const searchBtn = document.querySelector(".btnSearch");
+    searchBtn.addEventListener("click", function (e) {
+      e.preventDefault();  
+      const valueSearch = searchBox.value;
+      
+      fetch(`http://localhost:3000/books?name_like=${valueSearch}`)
+        .then(function (response) {
+          return response.json();
+        })
+        .then((data) => {
+          setData(data);
+        });
     });
   });
   // console.log(data);

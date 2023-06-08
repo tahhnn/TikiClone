@@ -11,13 +11,13 @@ const header = function () {
       <div class="divUserSite">
       <img class="userLogo" src="../src/img/userLogo.png" alt="">
         <div class="divAccountAcess">
-        <p class="login-register"><a href="#">Đăng nhập</a>/<a href="#">Đăng ký</a></p>
-        <p class="account"><a href="#">Tài khoản</a></p>
+        <p class="login-register cursor-pointer"><a href="/login">Đăng nhập/Đăng ký</a></p>
+        <p class="account cursor-pointer">Tài khoản</p>
         </div>
       </div>
     <div class="divCartSite">
       <img class="cartLogo" src="../src/img/cartLogo.png" alt="">
-      <p class="cartBtn"><a href="/cart">Giỏ hàng</a></p>
+      <p class="cartBtn cursor-pointer">Giỏ hàng</p>
     </div>
       </div>
       </div>

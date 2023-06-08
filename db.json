@@ -101,5 +101,21 @@
       "rating_average": "5",
       "id": 11
     }
+  ],
+  "user":[
+    {
+      "id": 1,
+      "name": "Bùi Chí Thanh",
+      "user": "anhthanh",
+      "password": "1122",
+      "role": 1
+    },
+    {
+      "id": 2,
+      "user": "voanhthanh",
+      "name":"Trần Thu Hà",
+      "password": "1111",
+      "role": 0
+    }
   ]
 }
