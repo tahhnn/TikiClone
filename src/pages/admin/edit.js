@@ -17,8 +17,14 @@ const editProduct = function ({id}) {
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      if (prd.value.length < 5) {
+        prd.nextElementSibling.innerText = "Tên tối thiểu 5 ký tự";
+        prd.classList.add("outline-red-600");
+      } else if (price.value.length < 5) {
+        price.nextElementSibling.innerText = "Bạn chưa nhập giá";
+        price.classList.add("outline-red-600");
+      } else {
       const formData = new FormData(form);
-
       const newPrd = {
         name: formData.get("name"),
         list_price: formData.get("price"),
@@ -31,6 +37,7 @@ const editProduct = function ({id}) {
       }).then(() => {
         router.navigate("/dashboard");
       });
+    }
     });
   });
 
@@ -46,10 +53,11 @@ const editProduct = function ({id}) {
   
     <form action="" class="mx-auto mb-0 mt-8 max-w-md space-y-4">
       <div>
-        <label for="name" class="sr-only">Tên sản phẩm</label>
+        <label for="name" class="">Tên sản phẩm</label>
   
         <div class="relative">
           <input
+            id="name"
             type="text"
             class="prd w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
             placeholder="Enter name..."
@@ -61,13 +69,12 @@ const editProduct = function ({id}) {
         </div>
       </div>
   
-      <div>
+        <div>
         <label for="img" class="sr-only">Ảnh</label>
-        <img width="100" src="${books.images ? books.images[0] : ''}"/>
         <div class="relative">
           
         </div>
-        <label for="rate" class="sr-only">Đánh giá</label>
+        <label for="rate" class="">Đánh giá</label>
   
         <div class="relative">
           <input
@@ -83,7 +90,7 @@ const editProduct = function ({id}) {
       </div>
   
       <div>
-        <label for="desc" class="sr-only">Gía</label>
+        <label for="desc" class="">Giá</label>
   
         <div class="relative">
           <input

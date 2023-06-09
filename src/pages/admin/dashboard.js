@@ -16,6 +16,9 @@ const Dashboard = function () {
     btnDelete.forEach(function (btn) {
       btn.onclick = function () {
         const id = btn.dataset.id;
+        const bookFind = books.find(data => data.id === +id )
+       const deleteAlert = confirm(`Bạn muốn xóa ${bookFind.name}`)
+       if(deleteAlert){
         fetch(`http://localhost:3000/books/${id}`, { method: "DELETE" })
           .then(function () {
             const data = books.filter(function (book) {
@@ -26,6 +29,7 @@ const Dashboard = function () {
           .then(() => {
             router.navigate("/dashboard");
           });
+       }
       };
     });
   });
