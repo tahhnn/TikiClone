@@ -42,10 +42,13 @@ const loginDashBoard = () => {
         (user) =>
           user.user == userInput.value && user.password == passInput.value
       );
+      let isLog = !!localStorage.getItem('user')
+
 
       if (checkUser) {
-        localStorage.setItem("user", userInput.value);
+        localStorage.setItem("nameUser", findUser.name);
         alert(`Đăng nhập thành công rồi nha ${findUser.name}`);
+        isLog = true;
         router.navigate("/dashboard");
       } else {
         alert(`Kiểm tra lại thông tin đăng nhập`);

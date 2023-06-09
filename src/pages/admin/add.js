@@ -15,8 +15,10 @@ const addProduct = function () {
       
       if (prd.value.length < 5) {
         prd.nextElementSibling.innerText = "Tên tối thiểu 5 ký tự";
+        prd.classList.add("outline-red-600");
       } else if (price.value.length < 5) {
         price.nextElementSibling.innerText = "Bạn chưa nhập giá";
+        price.classList.add("outline-red-600");
       } else {
         const newPrd = {
           name: formData.get("name"),

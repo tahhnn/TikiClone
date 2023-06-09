@@ -15,8 +15,6 @@ const editProduct = function ({id}) {
     const price = form.querySelector(".price");
     const rate = form.querySelector(".rate");
     const imgData = form.querySelector(".img").files[0];
-    const key = "vqmbmvm1";
-    const URLCloud = "https://api.cloudinary.com/v1_1/diklknmpm/image/upload";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();

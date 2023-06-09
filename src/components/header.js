@@ -1,5 +1,16 @@
+ import {useEffect } from "../../lib";
 const header = function () {
-  return `<div class="div-header">
+  useEffect(() => {
+      let isLog = !!localStorage.getItem('nameUser');
+      if(isLog) {
+        const name = localStorage.getItem('nameUser');
+        const nameUserArea = document.querySelector('.login-register');
+        nameUserArea.innerHTML = `Xin chào ${name}`
+        nameUserArea.nextElementSibling.innerText ='ĐĂNG XUẤT'
+        
+      }
+  })
+  return /*html*/ `<div class="div-header">
     <div class="div-img">
         <a href="/"><img class="logo-main" src="../src/img/Rectangle.png" alt="">
         <img class="logo-title" src="../src/img/Rectangle-1.png" alt=""></a>
@@ -12,7 +23,7 @@ const header = function () {
       <img class="userLogo" src="../src/img/userLogo.png" alt="">
         <div class="divAccountAcess">
         <p class="login-register cursor-pointer"><a href="/login">Đăng nhập/Đăng ký</a></p>
-        <p class="account cursor-pointer">Tài khoản</p>
+        <a href="/" class="account cursor-pointer" onclick="localStorage.removeItem('nameUser')">Tài khoản</a>
         </div>
       </div>
     <div class="divCartSite">
