@@ -33,14 +33,15 @@ const Dashboard = function () {
     const select = document.querySelector("#HeadlineAct");
     select.onchange = (e) => {
       e.preventDefault();
-      const options = select.value;
-      fetch(`http://localhost:3000/books?_sort=${options}&_order=desc`)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setBooks(data);
-        });
+      const options = select.value;     
+          fetch(`http://localhost:3000/books?_sort=${options}&_order=desc`)
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              setBooks(data);
+            });
+      
     };
   });
   return /*html*/ `
@@ -56,8 +57,8 @@ const Dashboard = function () {
     id="HeadlineAct"
 class="mt-1.5 w-[30%] mx-auto block rounded-lg border-gray-300 text-gray-700 sm:text-sm">
     <option value="" selected disabled hidden>Sắp xếp theo:</option>
-    <option value="list_price">Giá</option>
-    <option value="rating_average">Đánh giá</option>
+    <option value="list_price" data-id="desc">Giá</option>
+    <option value="rating_average" data-id="desc">Đánh giá</option>
   </select>
 </div>
             <div class="overflow-x-auto rounded-lg border border-gray-200">

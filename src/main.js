@@ -45,10 +45,10 @@ router.on({
     const islog = !!localStorage.getItem("nameUser");
     const role = localStorage.getItem("roleUser");
     if (islog) {
-      if (role === 0) {
+      if (role === "0") {
         render(notFound, app);
       }
-    }else if(role === 1) {
+    }else if(role === "1") {
       render(Dashboard, app);
     }
     

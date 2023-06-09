@@ -42,9 +42,9 @@ const loginDashBoard = () => {
         (user) =>
           user.user == userInput.value && user.password == passInput.value
       );
+      
+      
       let isLog = !!localStorage.getItem('user')
-
-
       if (checkUser) {
         localStorage.setItem("nameUser", findUser.name);
         localStorage.setItem("roleUser", findUser.role);
