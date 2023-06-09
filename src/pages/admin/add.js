@@ -8,8 +8,6 @@ const addProduct = function () {
       const price = form.querySelector(".price");
       const rate = form.querySelector(".rate");
 
-      const img = form.querySelector(".img");
-      uploadImg(img.files[0]);
       
       e.preventDefault();
       
@@ -20,6 +18,7 @@ const addProduct = function () {
         price.nextElementSibling.innerText = "Bạn chưa nhập giá";
         price.classList.add("outline-red-600");
       } else {
+        const formData = new FormData(form);
         const newPrd = {
           name: formData.get("name"),
           list_price: formData.get("price"),
@@ -29,30 +28,13 @@ const addProduct = function () {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newPrd),
-          // }).then(() => {
-            //   router.navigate("/dashboard");
+          }).then(() => {
+              router.navigate("/dashboard");
           });
         }
       });
     });
-    const uploadImg = (files) => {
-      const key = "okchuaaa";
-      const URLCloud = "https://api.cloudinary.com/v1_1/diklknmpm/image/upload";
-      const imgForm = new FormData();
-      const url = [];
-    imgForm.append("upload_preset", key);
-    imgForm.append("folder", "anhthanh");
 
-    imgForm.append("file", files);
-    const res = fetch(URLCloud, {
-      method: "POST",
-      headers: { "content-type": "application/form-data" },
-    }).then((data) => {
-      console.log(data);
-    })
-    
-    console.log(url);
-  };
   return /*html*/ `
    
   
@@ -84,12 +66,7 @@ const addProduct = function () {
         <label for="img" class="sr-only">Ảnh</label>
   
         <div class="relative">
-          <input
-            type="file"
-            class="img w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter description"
-            name="img"
-          />
+          
         </div>
         <label for="rate" class="sr-only">Đánh giá</label>
   

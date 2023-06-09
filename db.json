@@ -100,9 +100,15 @@
       "list_price": "999999999",
       "rating_average": "5",
       "id": 11
+    },
+    {
+      "name": "Sản phẩm 1",
+      "list_price": "999999999",
+      "rating_average": "5",
+      "id": 12
     }
   ],
-  "user":[
+  "user": [
     {
       "id": 1,
       "name": "Bùi Chí Thanh",
@@ -113,7 +119,7 @@
     {
       "id": 2,
       "user": "voanhthanh",
-      "name":"Trần Thu Hà",
+      "name": "Trần Thu Hà",
       "password": "1111",
       "role": 0
     }

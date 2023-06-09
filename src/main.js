@@ -42,7 +42,17 @@ router.on({
     // render(notFound,app);
   },
   "/dashboard": () => {
-    render(Dashboard, app);
+    const islog = !!localStorage.getItem("nameUser");
+    const role = localStorage.getItem("roleUser");
+    if (islog) {
+      if (role === 0) {
+        render(notFound, app);
+      }
+    }else if(role === 1) {
+      render(Dashboard, app);
+    }
+    
+
   },
   "/add/": () => {
     render(addProduct, app);
@@ -54,6 +64,7 @@ router.on({
     render(loginDashBoard, app);
   },
 });
+
 // router.on('/prd/:id', ({ data }) => render(() => productDetail(data), app))
 router.notFound = () => {
   render(notFound());

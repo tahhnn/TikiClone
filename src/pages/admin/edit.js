@@ -14,13 +14,10 @@ const editProduct = function ({id}) {
     const prd = form.querySelector(".prd");
     const price = form.querySelector(".price");
     const rate = form.querySelector(".rate");
-    const imgData = form.querySelector(".img").files[0];
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const formData = new FormData(form);
-      formData.append("file", imgData);
-      formData.append("upload_preset", key);
 
       const newPrd = {
         name: formData.get("name"),
@@ -68,12 +65,7 @@ const editProduct = function ({id}) {
         <label for="img" class="sr-only">Ảnh</label>
         <img width="100" src="${books.images ? books.images[0] : ''}"/>
         <div class="relative">
-          <input
-            type="file"
-            class="img w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter description"
-            name="img"
-          />
+          
         </div>
         <label for="rate" class="sr-only">Đánh giá</label>
   

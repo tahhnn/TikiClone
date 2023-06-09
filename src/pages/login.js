@@ -47,9 +47,10 @@ const loginDashBoard = () => {
 
       if (checkUser) {
         localStorage.setItem("nameUser", findUser.name);
+        localStorage.setItem("roleUser", findUser.role);
         alert(`Đăng nhập thành công rồi nha ${findUser.name}`);
         isLog = true;
-        router.navigate("/dashboard");
+        router.navigate("/");
       } else {
         alert(`Kiểm tra lại thông tin đăng nhập`);
         userInput.value = "";
@@ -98,10 +99,7 @@ const loginDashBoard = () => {
           </div>
   
       <div class="flex items-center justify-between">
-        <p class="text-sm text-gray-500">
-          No account?
-          <a class="underline" href="">Sign up</a>
-        </p>
+        
   
         <button
           type="submit"

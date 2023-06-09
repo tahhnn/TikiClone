@@ -2,12 +2,16 @@
 const header = function () {
   useEffect(() => {
       let isLog = !!localStorage.getItem('nameUser');
+      const role = localStorage.getItem('roleUser');
       if(isLog) {
         const name = localStorage.getItem('nameUser');
         const nameUserArea = document.querySelector('.login-register');
-        nameUserArea.innerHTML = `Xin chào ${name}`
+        nameUserArea.innerText = `Xin chào ${name}`
         nameUserArea.nextElementSibling.innerText ='ĐĂNG XUẤT'
-        
+          if(role == 1){
+              const dashboard = document.querySelector('.dashboard');
+              dashboard.innerText = `Dashboard` 
+          }
       }
   })
   return /*html*/ `<div class="div-header">
@@ -20,10 +24,11 @@ const header = function () {
       <button class="btnSearch"><img src="../src/img/searchbtn.png" alt="">
       <p>Tìm kiếm</p></button>
       <div class="divUserSite">
-      <img class="userLogo" src="../src/img/userLogo.png" alt="">
+      
         <div class="divAccountAcess">
         <p class="login-register cursor-pointer"><a href="/login">Đăng nhập/Đăng ký</a></p>
         <a href="/" class="account cursor-pointer" onclick="localStorage.removeItem('nameUser')">Tài khoản</a>
+        <a href="/dashboard" class="dashboard account cursor-pointer" onclick="localStorage.removeItem('nameUser')"></a>
         </div>
       </div>
     <div class="divCartSite">
