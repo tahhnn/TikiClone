@@ -64,7 +64,8 @@ const editProduct = function ({id}) {
             name="name"
             value="${books.name}"
           />
-  
+          <p class="text-red-600 font-extrabold"></p>
+
         
         </div>
       </div>
@@ -100,6 +101,8 @@ const editProduct = function ({id}) {
             name="price"
             value="${books.list_price}"
           />
+          <p class="text-red-600 font-extrabold"></p>
+
         </div>
       </div>
   

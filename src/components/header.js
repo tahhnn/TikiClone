@@ -8,9 +8,10 @@ const header = function () {
         const nameUserArea = document.querySelector('.login-register');
         nameUserArea.innerText = `Xin chào ${name}`
         nameUserArea.nextElementSibling.innerText ='ĐĂNG XUẤT'
+        const logArea = document.querySelector('.logArea')
+
           if(role == 1){
-              const dashboard = document.querySelector('.dashboard');
-              dashboard.innerText = `Dashboard` 
+              logArea.innerHTML = `<a href="/dashboard" class="dashboard account cursor-pointer" >Dashboard</a>` 
           }
       }
   })
@@ -27,8 +28,8 @@ const header = function () {
       
         <div class="divAccountAcess">
         <p class="login-register cursor-pointer"><a href="/login">Đăng nhập/Đăng ký</a></p>
-        <a href="/" class="account cursor-pointer" onclick="localStorage.removeItem('nameUser')">Tài khoản</a>
-        <a href="/dashboard" class="dashboard account cursor-pointer" onclick="localStorage.removeItem('nameUser')"></a>
+        <a href="/" class="account cursor-pointer" onclick="localStorage.removeItem('nameUser','roleUser')">Tài khoản</a>
+        <div class="logArea"></div>
         </div>
       </div>
     <div class="divCartSite">
